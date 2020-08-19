@@ -1,8 +1,10 @@
 <!-- <canvas id="myRectangle" >
     Your browser does not support the HTML canvas tag.
 </canvas> -->
-<canvas
+<div>
+  <canvas
     id="mdnRectangle"
     #canvasRectangle
-    style="background-color:#e6ffff;"
-    (mousedown)="draw($event)"></canvas>
+    (mousedown)="moveAndDrawRectangleFull($event)"></canvas>
+</div>
+
