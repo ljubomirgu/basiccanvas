@@ -31,6 +31,7 @@ export class RectangleComponent implements OnInit, AfterViewInit {
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = 'green';
     ctx.fillRect(0, 0, 150, 100);
+
   }
 
   ngOnInit(): void {
@@ -66,7 +67,7 @@ export class RectangleComponent implements OnInit, AfterViewInit {
     //this.ctx.scale(0.5, 0.5);
     this.ctx.fillRect(0 + (150 * this.xStepsCounter++), 0 + (100 * this.yStepsCounter), 150, 100);
     // console.log("PaintCanvas: ", this.canvas);
-    // console.log("PaintCtx: ", this.ctx);
+     console.log("PaintCtx: ", this.ctx);
    }
  }
 
@@ -75,7 +76,7 @@ export class RectangleComponent implements OnInit, AfterViewInit {
   const numberOfStepsY = Math.floor(this.canvas.height / 100);
 
   if(this.xStepsCounter === numberOfStepsX){
-    if(this.yStepsCounter === numberOfStepsY){
+    if(this.yStepsCounter === numberOfStepsY-1){
       this.xStepsCounter = 0;
       this.yStepsCounter = 0;
     } else {
@@ -96,7 +97,7 @@ export class RectangleComponent implements OnInit, AfterViewInit {
 
   if(this.ctx != null){
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.i = this.i < this.colors.length - 1 ? ++this.i : 0;
+    this.i = this.i > 0 ? --this.i : this.colors.length - 1;
     this.ctx.fillStyle = this.colors[this.i];
 
     if(this.xStepsCounter === 1 || this.xStepsCounter === 0){
